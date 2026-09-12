@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.DodajZdraviloPage"
+    Title="Dodaj zdravilo">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="12">
+
+            <Label
+                Text="Dodaj zdravilo"
+                FontSize="26"
+                FontAttributes="Bold"/>
+
+            <Label
+                x:Name="ImeZivaliLabel"
+                TextColor="Gray"/>
+
+
+            <Label Text="Naziv zdravila"/>
+
+            <Entry
+                x:Name="NazivVnos"
+                Placeholder="npr. Antibiotik"/>
+
+
+            <Label Text="Odmerek"/>
+
+            <Entry
+                x:Name="OdmerekVnos"
+                Placeholder="npr. 1 tableta"/>
+
+
+            <Label Text="Pogostost"/>
+
+            <Entry
+                x:Name="PogostostVnos"
+                Placeholder="npr. 2x dnevno"/>
+
+
+            <Label Text="Začetek terapije"/>
+
+            <DatePicker
+                x:Name="DatumZacetkaVnos"/>
+
+
+            <Label Text="Konec terapije"/>
+
+            <DatePicker
+                x:Name="DatumKoncaVnos"/>
+
+
+            <Label Text="Veterinar"/>
+
+            <Entry
+                x:Name="VeterinarVnos"
+                Placeholder="Ime veterinarja ali ambulante"/>
+
+
+            <Label Text="Opombe"/>
+
+            <Editor
+                x:Name="OpombeVnos"
+                Placeholder="Dodatne opombe"
+                HeightRequest="120"/>
+
+
+            <Button
+                Text="Shrani zdravilo"
+                Clicked="ShraniZdraviloKlik"
+                Margin="0,15,0,0"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_zivali.Views.PodrobnostiZivaliPage"
+             Title="PodrobnostiZivaliPage">
+
+
+    <ScrollView>
+
+        <VerticalStackLayout
+        Padding="20"
+        Spacing="20">
+
+            <!-- PRIKAZ PODATKOV -->
+            <VerticalStackLayout
+            x:Name="PrikazPodatkov"
+            Spacing="12">
+
+                <Label
+                x:Name="ImeLabel"
+                FontSize="28"
+                FontAttributes="Bold"/>
+
+                <Label x:Name="VrstaLabel"/>
+                <Label x:Name="PasmaLabel"/>
+                <Label x:Name="SpolLabel"/>
+                <Label x:Name="DatumRojstvaLabel"/>
+                <Label x:Name="MikrocipLabel"/>
+                <Label x:Name="PotniListLabel"/>
+
+                <Button
+                Text="Uredi podatke"
+                Clicked="UrediPodatkeKlik"/>
+
+            </VerticalStackLayout>
+
+
+            <!-- UREJANJE PODATKOV -->
+            <VerticalStackLayout
+            x:Name="UrejanjePodatkov"
+            IsVisible="False"
+            Spacing="12">
+
+                <Label
+                Text="Uredi podatke"
+                FontSize="24"
+                FontAttributes="Bold"/>
+
+                <Label Text="Ime"/>
+
+                <Entry
+                x:Name="ImeVnos"
+                Placeholder="Vnesite ime"/>
+
+
+                <Label Text="Vrsta"/>
+
+                <Picker
+                x:Name="VrstaVnos"
+                Title="Izberite vrsto">
+
+                    <Picker.Items>
+                        <x:String>Pes</x:String>
+                        <x:String>Mačka</x:String>
+                        <x:String>Drugo</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+
+                <Label Text="Pasma"/>
+
+                <Entry
+                x:Name="PasmaVnos"
+                Placeholder="Vnesite pasmo"/>
+
+
+                <Label Text="Spol"/>
+
+                <Picker
+                x:Name="SpolVnos"
+                Title="Izberite spol">
+
+                    <Picker.Items>
+                        <x:String>Samec</x:String>
+                        <x:String>Samica</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+
+                <Label Text="Datum rojstva"/>
+
+                <DatePicker
+                x:Name="DatumRojstvaVnos"/>
+
+
+                <Label Text="Mikročip"/>
+
+                <Entry
+                x:Name="MikrocipVnos"
+                Placeholder="Vnesite številko mikročipa"/>
+
+
+                <Label Text="Potni list"/>
+
+                <Entry
+                x:Name="PotniListVnos"
+                Placeholder="Vnesite številko potnega lista"/>
+
+
+                <HorizontalStackLayout
+                Spacing="10">
+
+                    <Button
+                    Text="Prekliči"
+                    Clicked="PrekliciUrejanjeKlik"/>
+
+                    <Button
+                    Text="Shrani spremembe"
+                    Clicked="ShraniSpremembeKlik"/>
+
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

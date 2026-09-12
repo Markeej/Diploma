@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.DodajCepljenjePage"
+    Title="Dodaj cepljenje">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="12">
+
+            <Label
+                Text="Dodaj cepljenje"
+                FontSize="26"
+                FontAttributes="Bold"/>
+
+            <Label
+                x:Name="ImeZivaliLabel"
+                TextColor="Gray"/>
+
+            <Label Text="Naziv cepljenja"/>
+
+            <Entry
+                x:Name="NazivVnos"
+                Placeholder="npr. Steklina"/>
+
+            <Label Text="Datum cepljenja"/>
+
+            <DatePicker
+                x:Name="DatumCepljenjaVnos"/>
+
+            <Label Text="Datum naslednjega cepljenja"/>
+
+            <DatePicker
+                x:Name="NaslednjeCepljenjeVnos"/>
+
+            <Label Text="Veterinar"/>
+
+            <Entry
+                x:Name="VeterinarVnos"
+                Placeholder="Ime veterinarja ali ambulante"/>
+
+            <Label Text="Opombe"/>
+
+            <Editor
+                x:Name="OpombeVnos"
+                Placeholder="Dodatne opombe"
+                HeightRequest="120"/>
+
+            <Button
+                Text="Shrani cepljenje"
+                Clicked="ShraniCepljenjeKlik"
+                Margin="0,15,0,0"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

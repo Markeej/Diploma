@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_zivali.Views.ZivalPage"
+             Title="ZivalPage">
+    <VerticalStackLayout Spacing="20" Margin="150">
+        <Button Text="Zdravje" WidthRequest="150" HorizontalOptions="Center" Clicked="OnZdravjeClicked"></Button>
+        <Button Text="Dokumenti" WidthRequest="150" HorizontalOptions="Center" Clicked="OnDokumentiClicked"></Button>
+        <Button Text="Opomniki" WidthRequest="150" HorizontalOptions="Center" Clicked="OnOpomnikiClicked"></Button>
+        <Button Text="Sledenje" WidthRequest="150" HorizontalOptions="Center" Clicked="OnSledenjeClicked"></Button>
+        <Button Text="Podatki o živali" WidthRequest="150" HorizontalOptions="Center" Clicked="OnPodatkiClicked"></Button>
+        <Button Text="Deljenje dostopa" WidthRequest="150" HorizontalOptions="Center" Clicked="OnDeljenjeClicked"></Button>
+        <Button x:Name="IzbrisiZivalButton" Text="Izbriši žival" IsVisible="False" Clicked="OnIzbrisiZivalClicked"/>
+        
+    </VerticalStackLayout>
+</ContentPage>

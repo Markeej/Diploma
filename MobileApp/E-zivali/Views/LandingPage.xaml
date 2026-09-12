@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.LandingPage"
+    Title="Naslovna stran"
+    BackgroundColor="White">
+
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="20"
+        VerticalOptions="Center">
+
+        <Image
+            
+            Source="e_zivali.png"
+            HeightRequest="200"
+            HorizontalOptions="Center"/>
+
+        <Button
+            Text="Prijava"
+            Clicked="OnPrijavaClicked"/>
+
+        <Button
+            Text="Registracija"
+            Clicked="OnRegistracijaClicked"/>
+            
+
+
+    </VerticalStackLayout>
+
+</ContentPage>

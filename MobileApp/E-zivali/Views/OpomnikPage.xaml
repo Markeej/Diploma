@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.OpomnikiPage"
+    Title="Opomniki">
+
+    <Grid
+        Padding="20"
+        RowDefinitions="Auto,*"
+        RowSpacing="15">
+
+        <!-- NASLOV -->
+        <VerticalStackLayout
+            Grid.Row="0"
+            Spacing="5">
+
+            <Label
+                Text="Opomniki"
+                FontSize="28"
+                FontAttributes="Bold"/>
+
+            <Label
+                Text="Vsi opomniki vaših živali"
+                FontSize="15"
+                TextColor="Gray"/>
+
+        </VerticalStackLayout>
+
+
+        <!-- SEZNAM OPOMNIKOV -->
+        <CollectionView
+            x:Name="OpomnikiCollectionView"
+            Grid.Row="1"
+            SelectionMode="None">
+
+            <!-- ČE NI OPOMNIKOV -->
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Spacing="8">
+
+                    <Label
+                        Text="Ni dodanih opomnikov."
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"/>
+
+                    <Label
+                        Text="Opomnik lahko dodate pri posamezni živali."
+                        TextColor="Gray"
+                        HorizontalTextAlignment="Center"/>
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+
+            <!-- POSAMEZEN OPOMNIK -->
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Padding="15"
+                        Margin="0,5"
+                        Stroke="#DDDDDD"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12">
+
+                        <VerticalStackLayout
+                            Spacing="6">
+
+                            <!-- IME ŽIVALI -->
+                            <Label
+                                Text="{Binding ImeZivali}"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="Gray"/>
+
+
+                            <!-- NAZIV OPOMNIKA -->
+                            <Label
+                                Text="{Binding Naziv}"
+                                FontSize="19"
+                                FontAttributes="Bold"/>
+
+
+                            <!-- TIP -->
+                            <Label
+                                Text="{Binding Tip,
+                                StringFormat='Tip: {0}'}"/>
+
+
+                            <!-- DATUM IN ČAS -->
+                            <Label
+                                Text="{Binding DatumCas,
+                                StringFormat='Datum: {0:dd.MM.yyyy HH:mm}'}"/>
+
+
+                            <!-- OPIS -->
+                            <Label
+                                Text="{Binding Opis}"
+                                TextColor="Gray"
+                                LineBreakMode="WordWrap"/>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

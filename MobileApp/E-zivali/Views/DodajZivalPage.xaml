@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_zivali.Views.DodajZivalPage"
+             Title="Dodaj Zival">
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <Label
+        Text="Dodaj žival"
+        FontSize="28"
+        FontAttributes="Bold"/>
+
+        <Label
+        x:Name="KorakLabel"
+        Text="Korak 1 od 3"
+        FontSize="14"
+        TextColor="Gray"/>
+
+        <ProgressBar
+        x:Name="KorakProgress"
+        Progress="0.33"/>
+
+        <!-- KORAK 1 -->
+        <VerticalStackLayout
+        x:Name="Korak1"
+        Spacing="15">
+
+            <Label
+            Text="Osnovni podatki"
+            FontSize="20"
+            FontAttributes="Bold"/>
+
+            <Label Text="Ime živali"/>
+
+            <Entry
+            x:Name="ImeZivaliVnos"
+            Placeholder="Vnesite ime živali"/>
+
+            <Label Text="Vrsta"/>
+
+            <Picker
+            x:Name="VrstaZivaliVnos"
+            Title="Izberite vrsto">
+                <Picker.Items>
+                    <x:String>Pes</x:String>
+                    <x:String>Mačka</x:String>
+                    <x:String>Drugo</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Pasma"/>
+
+            <Entry
+            x:Name="PasmaVnos"
+            Placeholder="Vnesite pasmo"/>
+
+            <Label Text="Spol"/>
+
+            <Picker
+            x:Name="SpolVnos"
+            Title="Izberite spol">
+                <Picker.Items>
+                    <x:String>Samec</x:String>
+                    <x:String>Samica</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Datum rojstva"/>
+
+            <DatePicker
+            x:Name="DatumRojstvaVnos"/>
+
+            <Button
+            Text="Naprej"
+            Clicked="NaprejNaKorak2"/>
+
+        </VerticalStackLayout>
+
+
+        <!-- KORAK 2 -->
+        <VerticalStackLayout
+        x:Name="Korak2"
+        IsVisible="False"
+        Spacing="15">
+
+            <Label
+            Text="Identifikacija"
+            FontSize="20"
+            FontAttributes="Bold"/>
+
+            <Label Text="Številka mikročipa"/>
+
+            <Entry
+            x:Name="MikrocipVnos"
+            Placeholder="Vnesite številko mikročipa"/>
+
+            <Label Text="Številka potnega lista"/>
+
+            <Entry
+            x:Name="PotniListVnos"
+            Placeholder="Vnesite številko potnega lista"/>
+
+            <HorizontalStackLayout
+            Spacing="15">
+
+                <Button
+                Text="Nazaj"
+                Clicked="NazajNaKorak1"/>
+
+                <Button
+                Text="Naprej"
+                Clicked="NaprejNaKorak3"/>
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+
+        <!-- KORAK 3 -->
+        <VerticalStackLayout
+        x:Name="Korak3"
+        IsVisible="False"
+        Spacing="15">
+
+            <Label
+            Text="Pregled podatkov"
+            FontSize="20"
+            FontAttributes="Bold"/>
+
+            <Label
+            x:Name="PregledIme"/>
+
+            <Label
+            x:Name="PregledVrsta"/>
+
+            <Label
+            x:Name="PregledPasma"/>
+
+            <Label
+            x:Name="PregledSpol"/>
+
+            <Label
+            x:Name="PregledDatum"/>
+
+            <Label
+            x:Name="PregledMikrocip"/>
+
+            <Label
+            x:Name="PregledPotniList"/>
+
+            <HorizontalStackLayout
+            Spacing="15">
+
+                <Button
+                Text="Nazaj"
+                Clicked="NazajNaKorak2"/>
+
+                <Button
+                Text="Shrani žival"
+                Clicked="ShraniZival"/>
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

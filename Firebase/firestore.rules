@@ -1,0 +1,177 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(animalId) {
+      return signedIn()
+        && exists(/databases/$(database)/documents/animals/$(animalId))
+        && get(/databases/$(database)/documents/animals/$(animalId)).data.ownerId == request.auth.uid;
+    }
+
+    function hasAnimalAccess(animalId) {
+      return signedIn() && (
+        isOwner(animalId) ||
+        exists(/databases/$(database)/documents/access/$(request.auth.uid + "_" + animalId))
+      );
+    }
+
+    match /users/{uid} {
+      allow read, create, update:
+        if signedIn() && request.auth.uid == uid;
+
+      allow delete: if false;
+    }
+
+    match /shareCodes/{shareCode} {
+      allow read: if signedIn();
+
+      allow create: if signedIn()
+        && request.resource.data.userId == request.auth.uid;
+
+      allow update, delete: if false;
+    }
+
+    match /animals/{animalId} {
+      allow create: if signedIn()
+        && request.resource.data.ownerId == request.auth.uid;
+
+      allow read: if signedIn()
+        && (
+          resource.data.ownerId == request.auth.uid ||
+          exists(/databases/$(database)/documents/access/$(request.auth.uid + "_" + animalId))
+        );
+
+      allow update: if hasAnimalAccess(animalId)
+        && request.resource.data.ownerId == resource.data.ownerId;
+
+      allow delete: if signedIn()
+        && resource.data.ownerId == request.auth.uid;
+    }
+
+    match /access/{accessId} {
+      allow read: if signedIn()
+        && (
+          resource.data.userId == request.auth.uid ||
+          isOwner(resource.data.animalId)
+        );
+
+      allow create: if signedIn()
+        && isOwner(request.resource.data.animalId)
+        && accessId ==
+          request.resource.data.userId + "_" +
+          request.resource.data.animalId
+        && (
+          (
+            request.resource.data.userId == request.auth.uid &&
+            request.resource.data.role == "owner"
+          )
+          ||
+          (
+            request.resource.data.userId != request.auth.uid &&
+            request.resource.data.role == "member"
+          )
+        );
+
+      allow update: if false;
+
+      allow delete: if signedIn()
+        && isOwner(resource.data.animalId);
+    }
+
+    match /vaccinations/{vaccinationId} {
+      allow create: if signedIn()
+        && hasAnimalAccess(request.resource.data.animalId);
+
+      allow read, delete: if signedIn()
+        && hasAnimalAccess(resource.data.animalId);
+
+      allow update: if signedIn()
+        && hasAnimalAccess(resource.data.animalId)
+        && request.resource.data.animalId == resource.data.animalId;
+    }
+
+    match /examinations/{examinationId} {
+      allow create: if signedIn()
+        && hasAnimalAccess(request.resource.data.animalId);
+
+      allow read, delete: if signedIn()
+        && hasAnimalAccess(resource.data.animalId);
+
+      allow update: if signedIn()
+        && hasAnimalAccess(resource.data.animalId)
+        && request.resource.data.animalId == resource.data.animalId;
+    }
+
+    match /medications/{medicationId} {
+      allow create: if signedIn()
+        && hasAnimalAccess(request.resource.data.animalId);
+
+      allow read, delete: if signedIn()
+        && hasAnimalAccess(resource.data.animalId);
+
+      allow update: if signedIn()
+        && hasAnimalAccess(resource.data.animalId)
+        && request.resource.data.animalId == resource.data.animalId;
+    }
+
+    match /documents/{documentId} {
+      allow create: if signedIn()
+        && hasAnimalAccess(request.resource.data.animalId);
+
+      allow read, delete: if signedIn()
+        && hasAnimalAccess(resource.data.animalId);
+
+      allow update: if signedIn()
+        && hasAnimalAccess(resource.data.animalId)
+        && request.resource.data.animalId == resource.data.animalId;
+    }
+
+    match /reminders/{reminderId} {
+      allow create: if signedIn()
+        && hasAnimalAccess(request.resource.data.animalId);
+
+      allow read, delete: if signedIn()
+        && hasAnimalAccess(resource.data.animalId);
+
+      allow update: if signedIn()
+        && hasAnimalAccess(resource.data.animalId)
+        && request.resource.data.animalId == resource.data.animalId;
+    }
+
+    match /gpsDevices/{deviceId} {
+      allow create: if signedIn()
+        && hasAnimalAccess(request.resource.data.animalId);
+
+      allow read: if signedIn()
+        && hasAnimalAccess(resource.data.animalId);
+
+      allow update: if signedIn()
+        && hasAnimalAccess(resource.data.animalId)
+        && request.resource.data.animalId == resource.data.animalId;
+
+      allow delete: if signedIn()
+        && hasAnimalAccess(resource.data.animalId);
+    }
+
+    match /locations/{locationId} {
+      allow read: if signedIn()
+        && exists(/databases/$(database)/documents/gpsDevices/$(resource.data.deviceId))
+        && hasAnimalAccess(
+          get(/databases/$(database)/documents/gpsDevices/$(resource.data.deviceId)).data.animalId
+        );
+
+      allow create, update: if false;
+
+      allow delete: if signedIn()
+        && exists(/databases/$(database)/documents/gpsDevices/$(resource.data.deviceId))
+        && isOwner(
+          get(/databases/$(database)/documents/gpsDevices/$(resource.data.deviceId)).data.animalId
+        );
+    }
+  }
+}

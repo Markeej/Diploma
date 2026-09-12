@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_zivali.Views.PrijavaPage"
+             Title="Prijava">
+    <VerticalStackLayout Spacing="20" Padding="20">
+
+
+
+        <Image
+            Source="e_zivali.png"
+            HeightRequest="150"
+            HorizontalOptions="Center"/> 
+        
+        <Label 
+            Text="Prijava"
+            FontAttributes="Bold"
+            HorizontalOptions="Start"/>
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="Vnesite email naslov" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+
+            <Border
+        Stroke="#D9D9D9"
+        StrokeThickness="1"
+        StrokeShape="RoundRectangle 12"
+        BackgroundColor="White"
+        Padding="12,4"
+        WidthRequest="250"
+        HorizontalOptions="Start">
+
+                <Entry Placeholder="janez.novak@gmail.com" x:Name="EmailVnos"/>
+
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="Vnesite geslo" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+
+            <Border
+        Stroke="#D9D9D9"
+        StrokeThickness="1"
+        StrokeShape="RoundRectangle 12"
+        BackgroundColor="White"
+        Padding="12,4"
+        WidthRequest="250"
+        HorizontalOptions="Start">
+
+                <Entry Placeholder="*******" IsPassword="True" x:Name="GesloVnos"/>
+
+            </Border>
+        </VerticalStackLayout>
+
+        <Button Text="Prijava" WidthRequest="150" Margin="20" Clicked="PrijaviSe"></Button>
+        
+        
+    </VerticalStackLayout>
+</ContentPage>

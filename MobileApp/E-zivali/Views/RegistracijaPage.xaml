@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_zivali.Views.RegistracijaPage"
+             Title="Registracija">
+    <VerticalStackLayout Spacing="20" Padding="20">
+        
+        
+
+        <Image
+            Source="e_zivali.png"
+            HeightRequest="100"
+            HorizontalOptions="Center"/>
+
+        <Label 
+            Text="Registracija"
+            HorizontalOptions="Start"
+            FontAttributes="Bold"/>
+        
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="Ime" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+
+            <Border
+                Stroke="#D9D9D9"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 12"
+                BackgroundColor="White"
+                Padding="12,4"
+                WidthRequest="250"
+                HorizontalOptions="Start">
+
+                <Entry 
+                    x:Name="ImeVnos"
+                    Placeholder="Vnesite ime"/>
+
+            </Border>
+        </VerticalStackLayout>
+
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="Priimek" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+
+            <Border
+         Stroke="#D9D9D9"
+         StrokeThickness="1"
+         StrokeShape="RoundRectangle 12"
+         BackgroundColor="White"
+         Padding="12,4"
+         WidthRequest="250"
+         HorizontalOptions="Start">
+
+                <Entry 
+                    x:Name="PriimekVnos"
+                    Placeholder="Vnesite priimek"/>
+
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="Email naslov" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+
+            <Border
+         Stroke="#D9D9D9"
+         StrokeThickness="1"
+         StrokeShape="RoundRectangle 12"
+         BackgroundColor="White"
+         Padding="12,4"
+         WidthRequest="250"
+         HorizontalOptions="Start">
+
+                <Entry 
+                    x:Name="EmailVnos" 
+                    Placeholder="Vnesite e-poštni naslov"
+                    Keyboard="Email"
+                    TextColor="Black"
+                    BackgroundColor="Transparent"/>
+
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="Vnesite geslo" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+
+            <Border
+         Stroke="#D9D9D9"
+         StrokeThickness="1"
+         StrokeShape="RoundRectangle 12"
+         BackgroundColor="White"
+         Padding="12,4"
+         WidthRequest="250"
+         HorizontalOptions="Start">
+
+                <Entry 
+                    x:Name="GesloVnos"
+                    Placeholder="Vnesite geslo"
+                    IsPassword="True"/>
+
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="Ponovite geslo" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+
+            <Border
+         Stroke="#D9D9D9"
+         StrokeThickness="1"
+         StrokeShape="RoundRectangle 12"
+         BackgroundColor="White"
+         Padding="12,4"
+         WidthRequest="250"
+         HorizontalOptions="Start">
+
+                <Entry 
+                    x:Name="PonovniVnos"
+                    IsPassword="True"
+                    Placeholder="Ponovno vnesite geslo"/>
+
+            </Border>
+        </VerticalStackLayout>
+
+
+        <Button Text="Registriraj se" HorizontalOptions="Center" WidthRequest="150" Clicked="UstvariRegistracijo"/>
+    </VerticalStackLayout>
+</ContentPage>

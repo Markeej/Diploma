@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.SledenjeZivaliPage"
+    Title="Sledenje">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="15">
+
+           
+            <Label
+                x:Name="ImeZivaliLabel"
+                FontSize="26"
+                FontAttributes="Bold"/>
+
+
+           
+            <Label
+                x:Name="StatusNapraveLabel"
+                Text="Sledilna naprava še ni povezana."
+                TextColor="Gray"/>
+
+
+           
+            <VerticalStackLayout
+                x:Name="PovezavaNapraveLayout"
+                Spacing="10">
+
+                <Label
+                    Text="Sledilna naprava"
+                    FontSize="18"
+                    FontAttributes="Bold"/>
+
+                <Entry
+                    x:Name="DeviceIdVnos"
+                    Placeholder="Vnesite ID naprave"/>
+
+                <Button
+                    Text="Poveži napravo"
+                    Clicked="PoveziNapravoKlik"/>
+
+            </VerticalStackLayout>
+
+
+           
+            <VerticalStackLayout
+                x:Name="LokacijaLayout"
+                IsVisible="False"
+                Spacing="8"
+                Margin="0,15,0,0">
+
+                <Label
+                    Text="Zadnja lokacija"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    x:Name="LatitudeLabel"/>
+
+                <Label
+                    x:Name="LongitudeLabel"/>
+
+                <Label
+                    x:Name="CasLokacijeLabel"
+                    TextColor="Gray"/>
+
+            </VerticalStackLayout>
+
+
+           
+            <VerticalStackLayout
+                x:Name="ZemljevidLayout"
+                IsVisible="False"
+                Spacing="8"
+                Margin="0,10,0,0">
+
+                <Label
+                    Text="Lokacija na zemljevidu"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+
+                <WebView
+                    x:Name="MapWebView"
+                    HeightRequest="350"/>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,41 @@
+# Build datoteke
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# .NET / MAUI
+artifacts/
+Debug/
+Release/
+
+# Secrets / zasebni podatki
+Secrets/
+*.pfx
+*.p12
+*.key
+*.pem
+
+# Firebase service account
+*service-account*.json
+*firebase-adminsdk*.json
+
+# ASP.NET konfiguracija z občutljivimi podatki
+appsettings.json
+appsettings.Development.json
+
+# Environment datoteke
+.env
+.env.*
+secrets.json
+
+# OS datoteke
+.DS_Store
+Thumbs.db
+
+# Začasne datoteke
+*.tmp
+*.log

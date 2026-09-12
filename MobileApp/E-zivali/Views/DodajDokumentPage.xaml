@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.DodajDokumentPage"
+    Title="Dodaj dokument">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="12">
+
+            <Label
+                Text="Dodaj dokument"
+                FontSize="26"
+                FontAttributes="Bold"/>
+
+            <Label
+                x:Name="ImeZivaliLabel"
+                TextColor="Gray"/>
+
+            <Label Text="Naziv dokumenta"/>
+
+            <Entry
+                x:Name="NazivVnos"
+                Placeholder="npr. Veterinarski izvid"/>
+
+            <Label Text="Vrsta dokumenta"/>
+
+            <Picker
+                x:Name="VrstaVnos"
+                Title="Izberite vrsto">
+
+                <Picker.Items>
+                    <x:String>Potni list</x:String>
+                    <x:String>Izvid</x:String>
+                    <x:String>Račun</x:String>
+                    <x:String>Potrdilo</x:String>
+                    <x:String>Drugo</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <Label Text="Datum dokumenta"/>
+
+            <DatePicker
+                x:Name="DatumVnos"/>
+
+            <Label Text="Datoteka"/>
+
+            <Button
+                Text="Izberi datoteko"
+                Clicked="IzberiDatotekoKlik"/>
+
+            <Label
+                x:Name="IzbranaDatotekaLabel"
+                Text="Datoteka ni izbrana."
+                TextColor="Gray"/>
+
+            <Label Text="Opombe"/>
+
+            <Editor
+                x:Name="OpombeVnos"
+                Placeholder="Dodatne opombe"
+                HeightRequest="100"/>
+
+            <Button
+                Text="Shrani dokument"
+                Clicked="ShraniDokumentKlik"
+                Margin="0,15,0,0"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

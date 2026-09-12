@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_zivali.Views.MojeZivaliPage"
+             Title="Moje Zivali">
+    <VerticalStackLayout>
+        <Label 
+            Text="Moje živali"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        
+        <CollectionView x:Name="ZivaliCollectionView">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border Stroke="#E0E0E0"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16"
+                        Padding="15"
+                        Margin="5,8"
+                        BackgroundColor="White">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="ZivalKlik"
+                                CommandParameter="{Binding .}"/>
+                        </Border.GestureRecognizers>
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <VerticalStackLayout Spacing="4">
+
+                                <Label Text="{Binding Ime}"
+                                    FontSize="20"
+                                    FontAttributes="Bold"/>
+
+                                <Label Text="{Binding Vrsta}"
+                                    FontSize="14"
+                                    TextColor="Gray"/>
+
+                                <Label Text="{Binding Pasma}"
+                                    FontSize="14"
+                                    TextColor="Gray"/>
+
+                            </VerticalStackLayout>
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+        <Button Text="Dodaj novo žival" Clicked="OnDodajClicked" HorizontalOptions="Center" WidthRequest="150"></Button>
+    </VerticalStackLayout>
+</ContentPage>

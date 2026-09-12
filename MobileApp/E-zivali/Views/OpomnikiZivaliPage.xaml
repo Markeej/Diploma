@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.OpomnikiZivaliPage"
+    Title="Opomniki">
+
+    <Grid
+        Padding="20"
+        RowDefinitions="Auto,*,Auto"
+        RowSpacing="15">
+
+        <VerticalStackLayout Grid.Row="0">
+
+            <Label
+                Text="Opomniki"
+                FontSize="26"
+                FontAttributes="Bold"/>
+
+            <Label
+                x:Name="ImeZivaliLabel"
+                TextColor="Gray"/>
+
+        </VerticalStackLayout>
+
+        <CollectionView
+            x:Name="OpomnikiCollectionView"
+            Grid.Row="1"
+            SelectionMode="None">
+
+            <CollectionView.EmptyView>
+
+                <Label
+                    Text="Ni dodanih opomnikov."
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Padding="15"
+                        Margin="0,5"
+                        Stroke="#DDDDDD"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10">
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <Label
+                                Text="{Binding Naziv}"
+                                FontSize="18"
+                                FontAttributes="Bold"/>
+
+                            <Label
+                                Text="{Binding Tip,
+                                StringFormat='Tip: {0}'}"/>
+
+                            <Label
+                                Text="{Binding DatumCas,
+                                StringFormat='Datum: {0:dd.MM.yyyy HH:mm}'}"/>
+
+                            <Label
+                                Text="{Binding Opis}"
+                                TextColor="Gray"/>
+
+                            <HorizontalStackLayout
+                                Spacing="10"
+                                Margin="0,10,0,0">
+
+                                <Button
+                                    Text="Uredi"
+                                    Clicked="UrediOpomnikKlik"
+                                    CommandParameter="{Binding .}"/>
+
+                                <Button
+                                    Text="Izbriši"
+                                    Clicked="IzbrisiOpomnikKlik"
+                                    CommandParameter="{Binding .}"/>
+
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button
+            Grid.Row="2"
+            Text="+ Dodaj opomnik"
+            Clicked="DodajOpomnikKlik"/>
+
+    </Grid>
+
+</ContentPage>

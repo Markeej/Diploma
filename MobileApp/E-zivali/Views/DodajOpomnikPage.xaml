@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="E_zivali.Views.DodajOpomnikPage"
+    Title="Dodaj opomnik">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="12">
+
+            <Label
+                Text="Dodaj opomnik"
+                FontSize="26"
+                FontAttributes="Bold"/>
+
+            <Label
+                x:Name="ImeZivaliLabel"
+                TextColor="Gray"/>
+
+            <Label Text="Naziv"/>
+
+            <Entry
+                x:Name="NazivVnos"
+                Placeholder="npr. Cepljenje proti steklini"/>
+
+            <Label Text="Tip opomnika"/>
+
+            <Picker
+                x:Name="TipVnos"
+                Title="Izberite tip">
+
+                <Picker.Items>
+                    <x:String>Cepljenje</x:String>
+                    <x:String>Pregled</x:String>
+                    <x:String>Zdravilo</x:String>
+                    <x:String>Drugo</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <Label Text="Datum"/>
+
+            <DatePicker
+                x:Name="DatumVnos"/>
+
+            <Label Text="Čas"/>
+
+            <TimePicker
+                x:Name="CasVnos"/>
+
+            <Label Text="Opis"/>
+
+            <Editor
+                x:Name="OpisVnos"
+                Placeholder="Dodatne informacije"
+                HeightRequest="100"/>
+
+            <Button
+                Text="Shrani opomnik"
+                Clicked="ShraniOpomnikKlik"
+                Margin="0,15,0,0"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
