@@ -321,7 +321,18 @@ public class FirebaseFirestoreService
 
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", idToken);
 
-        string url = "https://firestore.googleapis.com/v1/projects/" + projectId + "/databases/(default)/documents/animals/" + zival.Id;
+        string url =
+                    "https://firestore.googleapis.com/v1/projects/" +
+                    projectId +
+                    "/databases/(default)/documents/animals/" +
+                    zival.Id +
+                    "?updateMask.fieldPaths=name" +
+                    "&updateMask.fieldPaths=species" +
+                    "&updateMask.fieldPaths=breed" +
+                    "&updateMask.fieldPaths=sex" +
+                    "&updateMask.fieldPaths=dateOfBirth" +
+                    "&updateMask.fieldPaths=microchip" +
+                    "&updateMask.fieldPaths=passportNumber";
 
         Dictionary<string, object> fields = new Dictionary<string, object>();
 
